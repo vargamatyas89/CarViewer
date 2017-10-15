@@ -13,6 +13,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
+    
+    let reusableCarCell = "ReusableCarCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
