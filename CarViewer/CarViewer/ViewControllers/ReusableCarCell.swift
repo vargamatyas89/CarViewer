@@ -11,8 +11,11 @@ import UIKit
 class ReusableCarCell: UITableViewCell {
     var reuseIdentifier: String?
     
+    @IBOutlet weak var carImage: UIImageView
+    @IBOutlet weak var carModelName: String
+    @IBOutlet weak var carColor: String
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
 }
