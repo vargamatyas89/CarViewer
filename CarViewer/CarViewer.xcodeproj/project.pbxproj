@@ -22,6 +22,7 @@
 		CB444D881F92E7B400713AEC /* FuelInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D871F92E7B400713AEC /* FuelInformation.swift */; };
 		CB444D8A1F92EE4E00713AEC /* ReusableCarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D891F92EE4E00713AEC /* ReusableCarCell.swift */; };
 		CB444D8D1F93C35B00713AEC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D8C1F93C35B00713AEC /* MapViewController.swift */; };
+		CB444D911F95492200713AEC /* default-image-car.png in Resources */ = {isa = PBXBuildFile; fileRef = CB444D901F95490200713AEC /* default-image-car.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		CB444D871F92E7B400713AEC /* FuelInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelInformation.swift; sourceTree = "<group>"; };
 		CB444D891F92EE4E00713AEC /* ReusableCarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCarCell.swift; sourceTree = "<group>"; };
 		CB444D8C1F93C35B00713AEC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		CB444D901F95490200713AEC /* default-image-car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-image-car.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		CB444D571F92AB0400713AEC /* CarViewer */ = {
 			isa = PBXGroup;
 			children = (
+				CB444D8F1F9548B700713AEC /* Images */,
 				CB444D8B1F92EE5900713AEC /* ViewControllers */,
 				CB444D801F92E19F00713AEC /* Constants */,
 				CB444D7D1F92AC4B00713AEC /* CarDetails */,
@@ -145,6 +148,14 @@
 				CB444D8C1F93C35B00713AEC /* MapViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CB444D8F1F9548B700713AEC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CB444D901F95490200713AEC /* default-image-car.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB444D911F95492200713AEC /* default-image-car.png in Resources */,
 				CB444D681F92AB0400713AEC /* LaunchScreen.storyboard in Resources */,
 				CB444D651F92AB0400713AEC /* Assets.xcassets in Resources */,
 				CB444D631F92AB0400713AEC /* Main.storyboard in Resources */,

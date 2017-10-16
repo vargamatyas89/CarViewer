@@ -40,11 +40,11 @@ class Car {
     let licensePlate: String
     let position: Position
     let innerCleanliness: String
-    let carImageUrl: URL
+    let carImageUrl: URL?
     
     public init(from dictionary: [String: Any]) throws {
         guard let id = dictionary["id"] as? String,
-            let modelIdentifier = dictionary["modelidentifier"] as? String,
+            let modelIdentifier = dictionary["modelIdentifier"] as? String,
             let modelName = dictionary["modelName"] as? String,
             let name = dictionary["name"] as? String,
             let make = dictionary["make"] as? String,
@@ -74,6 +74,6 @@ class Car {
         self.licensePlate = licensePlate
         self.position = Position(latitude: latitude, longitude: longitude)
         self.innerCleanliness = innerCleanliness
-        self.carImageUrl = URL(string: String(format: Constants.carImageUrlScheme, [self.modelIdentifier, self.color]))!
+        self.carImageUrl = URL(string: String(format: Constants.carImageUrlSchemeMainPart))?.appendingPathComponent(modelIdentifier).appendingPathComponent(color).appendingPathComponent(Constants.carImageUrlSchemeEndPart)
     }
 }
