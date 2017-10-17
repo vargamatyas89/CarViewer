@@ -11,4 +11,7 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
+    @IBAction func doneButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }

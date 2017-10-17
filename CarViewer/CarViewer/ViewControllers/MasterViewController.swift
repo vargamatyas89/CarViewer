@@ -8,19 +8,18 @@
 
 import UIKit
 import CoreData
+import Foundation
 
 class MasterViewController: UITableViewController {
 
-    var defaultRowHeight: CGFloat = 40.0
+    var defaultRowHeight = CGFloat(124)
     var detailViewController: DetailViewController? = nil
     var carList = [Car]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Cars"
         self.loadData()
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        navigationItem.leftBarButtonItem = editButtonItem
 
         if let split = splitViewController {
             let controllers = split.viewControllers
@@ -31,12 +30,6 @@ class MasterViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
-        self.tableView.reloadData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Segues
@@ -62,29 +55,38 @@ class MasterViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.reusableCarCell, for: indexPath) as? ReusableCarCell
-
-        return cell!.carImage.frame.height
+        guard let height = (tableView.cellForRow(at: indexPath) as? ReusableCarCell)?.carImage.frame.height else {
+            return defaultRowHeight
+        }
+        return height
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.reusableCarCell, for: indexPath)
-        cell.imageView?.image = UIImage(named: Constants.placeholderCarImage, in: Bundle.main, compatibleWith: nil)
-        guard let imageUrl = carList[indexPath.row].carImageUrl else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.reusableCarCell, for: indexPath) as? ReusableCarCell else {
+            fatalError("ReusableCarCell can not be instantiated.")
+        }
+        let car = carList[indexPath.row]
+        cell.carModelName.text = car.modelName
+        cell.carColor.text = car.color
+        cell.carImage.image = UIImage(named: Constants.placeholderCarImage, in: Bundle.main, compatibleWith: nil)
+        guard let imageUrl = car.carImageUrl else {
             print("Image load failed.")
+            // If there isn't any imageUrl, the default image will remain presented
             return cell
         }
-        let imageLoaderDataTask = URLSession.shared.dataTask(with: imageUrl) { data, response, error in
-            if let data = data, let loadedImage = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    if let updateCell = tableView.cellForRow(at: indexPath) as? ReusableCarCell {
-                        updateCell.carImage.image = loadedImage
+        cell.activityIndicator.startAnimating()
+        DispatchQueue.global().async {
+            let imageLoaderDataTask = URLSession.shared.dataTask(with: imageUrl) { data, response, error in
+                if let data = data, let loadedImage = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        cell.carImage.image = loadedImage
+                        cell.activityIndicator.stopAnimating()
+                        self.tableView.reloadData()
                     }
-                    self.tableView.reloadData()
                 }
             }
+            imageLoaderDataTask.resume()
         }
-        imageLoaderDataTask.resume()
         
         return cell
     }
@@ -93,43 +95,33 @@ class MasterViewController: UITableViewController {
         // Return false if you do not want the specified item to be editable.
         return false
     }
-
-    /*
-     // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
-     
-     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-         // In the simplest, most efficient, case, reload the table view.
-         tableView.reloadData()
-     }
-     */
 }
 
 extension MasterViewController {
     func loadData() {
-        let request = URLRequest(url: Constants.carsJSONUrl, cachePolicy: .reloadIgnoringLocalCacheData)
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("Error happened during json download: \(error)")
-                return
-            }
-            if let response = response as? HTTPURLResponse,
-                response.statusCode == 200,
-                let data = data,
-                let jsonData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
-                let jsonDictionary = jsonData as? [[String: Any]]
-            {
-                for element in jsonDictionary {
-                    do{
-                        try self.carList.append(Car(from: element))
-                    } catch {
-                        print("Error happened during transforming jsonDictionary element. \(error)")
+       // DispatchQueue.global().async {
+            let request = URLRequest(url: Constants.carsJSONUrl, cachePolicy: .reloadIgnoringLocalCacheData)
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("Error happened during json download: \(error)")
+                    return
+                }
+                if let response = response as? HTTPURLResponse,
+                    response.statusCode == 200,
+                    let data = data,
+                    let jsonData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
+                    let jsonDictionary = jsonData as? [[String: Any]]
+                {
+                    for element in jsonDictionary {
+                        do{
+                            try self.carList.append(Car(from: element))
+                        } catch {
+                            print("Error happened during transforming jsonDictionary element. \(error)")
+                        }
                     }
                 }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
             }
+            task.resume()
         }
-        task.resume()
-    }
+//    }
 }
