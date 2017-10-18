@@ -17,12 +17,12 @@
 		CB444D731F92AB0400713AEC /* CarViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D721F92AB0400713AEC /* CarViewerTests.swift */; };
 		CB444D7F1F92ACB600713AEC /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D7E1F92ACB600713AEC /* Car.swift */; };
 		CB444D821F92E1BF00713AEC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D811F92E1BF00713AEC /* Constants.swift */; };
-		CB444D841F92E5BD00713AEC /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D831F92E5BD00713AEC /* Error.swift */; };
 		CB444D861F92E74000713AEC /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D851F92E74000713AEC /* Position.swift */; };
 		CB444D881F92E7B400713AEC /* FuelInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D871F92E7B400713AEC /* FuelInformation.swift */; };
 		CB444D8A1F92EE4E00713AEC /* ReusableCarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D891F92EE4E00713AEC /* ReusableCarCell.swift */; };
 		CB444D8D1F93C35B00713AEC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D8C1F93C35B00713AEC /* MapViewController.swift */; };
 		CB444D911F95492200713AEC /* default-image-car.png in Resources */ = {isa = PBXBuildFile; fileRef = CB444D901F95490200713AEC /* default-image-car.png */; };
+		CBA1F9D71F97F77400BD5256 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1F9D61F97F77400BD5256 /* Error.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,12 +50,12 @@
 		CB444D741F92AB0400713AEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB444D7E1F92ACB600713AEC /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		CB444D811F92E1BF00713AEC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		CB444D831F92E5BD00713AEC /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		CB444D851F92E74000713AEC /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		CB444D871F92E7B400713AEC /* FuelInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelInformation.swift; sourceTree = "<group>"; };
 		CB444D891F92EE4E00713AEC /* ReusableCarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCarCell.swift; sourceTree = "<group>"; };
 		CB444D8C1F93C35B00713AEC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CB444D901F95490200713AEC /* default-image-car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-image-car.png"; sourceTree = "<group>"; };
+		CBA1F9D61F97F77400BD5256 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,10 +97,10 @@
 		CB444D571F92AB0400713AEC /* CarViewer */ = {
 			isa = PBXGroup;
 			children = (
-				CB444D8F1F9548B700713AEC /* Images */,
-				CB444D8B1F92EE5900713AEC /* ViewControllers */,
 				CB444D801F92E19F00713AEC /* Constants */,
+				CB444D8F1F9548B700713AEC /* Images */,
 				CB444D7D1F92AC4B00713AEC /* CarDetails */,
+				CB444D8B1F92EE5900713AEC /* ViewControllers */,
 				CB444D581F92AB0400713AEC /* AppDelegate.swift */,
 				CB444D611F92AB0400713AEC /* Main.storyboard */,
 				CB444D641F92AB0400713AEC /* Assets.xcassets */,
@@ -124,9 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				CB444D7E1F92ACB600713AEC /* Car.swift */,
-				CB444D831F92E5BD00713AEC /* Error.swift */,
 				CB444D851F92E74000713AEC /* Position.swift */,
 				CB444D871F92E7B400713AEC /* FuelInformation.swift */,
+				CBA1F9D61F97F77400BD5256 /* Error.swift */,
 			);
 			path = CarDetails;
 			sourceTree = "<group>";
@@ -265,10 +265,10 @@
 				CB444D8D1F93C35B00713AEC /* MapViewController.swift in Sources */,
 				CB444D5C1F92AB0400713AEC /* CarViewer.xcdatamodeld in Sources */,
 				CB444D591F92AB0400713AEC /* AppDelegate.swift in Sources */,
+				CBA1F9D71F97F77400BD5256 /* Error.swift in Sources */,
 				CB444D7F1F92ACB600713AEC /* Car.swift in Sources */,
 				CB444D5E1F92AB0400713AEC /* MasterViewController.swift in Sources */,
 				CB444D601F92AB0400713AEC /* DetailViewController.swift in Sources */,
-				CB444D841F92E5BD00713AEC /* Error.swift in Sources */,
 				CB444D881F92E7B400713AEC /* FuelInformation.swift in Sources */,
 				CB444D861F92E74000713AEC /* Position.swift in Sources */,
 				CB444D821F92E1BF00713AEC /* Constants.swift in Sources */,

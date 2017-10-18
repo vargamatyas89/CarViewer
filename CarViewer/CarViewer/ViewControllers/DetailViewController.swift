@@ -15,6 +15,10 @@ class DetailViewController: UIViewController {
     
     public var car: Car!
 
+    @IBAction func showOnMap(_ sender: Any) {
+        performSegue(withIdentifier: "showOnMap", sender: sender)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fillTextViewWithCarData()
@@ -24,6 +28,14 @@ class DetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showOnMap", let car = car, let destination = segue.destination as? MapViewController {
+            destination.carName = car.name
+            destination.position = car.position
+            
+        }
     }
     
     private func fillTextViewWithCarData() {

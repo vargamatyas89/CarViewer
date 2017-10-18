@@ -42,6 +42,18 @@ class Car {
     let innerCleanliness: String
     let carImageUrl: URL?
     
+    public var colorDescription: String {
+        get {
+            return self.color.replacingOccurrences(of: "_", with: " ").capitalized
+        }
+    }
+    
+    public var innerCleanlinessDescription: String {
+        get {
+            return "Inner cleanliness: \(self.innerCleanliness.replacingOccurrences(of: "_", with: " ").capitalized)"
+        }
+    }
+    
     public init(from dictionary: [String: Any]) throws {
         guard let id = dictionary["id"] as? String,
             let modelIdentifier = dictionary["modelIdentifier"] as? String,
@@ -55,8 +67,8 @@ class Car {
             let fuelLevel = dictionary["fuelLevel"] as? Float,
             let transmission = dictionary["transmission"] as? String,
             let licensePlate = dictionary["licensePlate"] as? String,
-            let latitude = dictionary["latitude"] as? Float,
-            let longitude = dictionary["longitude"] as? Float,
+            let latitude = dictionary["latitude"] as? Double,
+            let longitude = dictionary["longitude"] as? Double,
             let innerCleanliness = dictionary["innerCleanliness"] as? String else {
                 throw TransformerError.transformingFailed
         }
@@ -76,4 +88,6 @@ class Car {
         self.innerCleanliness = innerCleanliness
         self.carImageUrl = URL(string: String(format: Constants.carImageUrlSchemeMainPart))?.appendingPathComponent(modelIdentifier).appendingPathComponent(color).appendingPathComponent(Constants.carImageUrlSchemeEndPart)
     }
+    
+    
 }

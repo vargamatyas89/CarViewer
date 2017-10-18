@@ -51,7 +51,6 @@ class MasterViewController: UITableViewController {
                 let selectedCar = carList[indexPath.row]
                 detailViewController.car = selectedCar
                 detailViewController.carImage.image = cell.carImage.image
-                detailViewController.detailDescriptionLabel = selectedCar
                 detailViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 detailViewController.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -78,7 +77,8 @@ class MasterViewController: UITableViewController {
         }
         let car = carList[indexPath.row]
         cell.carModelName.text = car.modelName
-        cell.carColor.text = car.color
+        cell.carColor.text = car.colorDescription
+        cell.cleanliness.text = car.innerCleanlinessDescription
         cell.carImage.image = UIImage(named: Constants.placeholderCarImage, in: Bundle.main, compatibleWith: nil)
         guard let imageUrl = car.carImageUrl else {
             print("Image load failed.")
@@ -135,11 +135,11 @@ extension MasterViewController {
             do {
                 try image = UIImage(data: Data(contentsOf: url))!
             } catch {
-                print("Failed")
+                print("Image can not be loaded.")
             }
             DispatchQueue.main.async(execute: {
+                cell.activityIndicator.stopAnimating()
                 if image != nil {
-                    cell.activityIndicator.stopAnimating()
                     cell.carImage.image = image
                 }
             })

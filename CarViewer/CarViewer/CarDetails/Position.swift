@@ -9,14 +9,14 @@
 import Foundation
 
 struct Position {
-    let latitude: Float
-    let longitude: Float
+    let latitude: Double
+    let longitude: Double
     
-    var share: (Float, Float) {
+    var share: (Double, Double) {
         return (latitude, longitude)
     }
     
-    public init(latitude: Float, longitude: Float) {
+    public init(latitude: Double, longitude: Double) {
         self.latitude = latitude
         self.longitude = longitude
     }

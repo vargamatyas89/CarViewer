@@ -13,6 +13,7 @@ class ReusableCarCell: UITableViewCell {
     @IBOutlet weak var carImage: UIImageView!
     @IBOutlet weak var carModelName: UILabel!
     @IBOutlet weak var carColor: UILabel!
+    @IBOutlet weak var cleanliness: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func awakeFromNib() {
