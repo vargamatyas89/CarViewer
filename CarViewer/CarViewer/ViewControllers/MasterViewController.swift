@@ -75,18 +75,7 @@ class MasterViewController: UITableViewController {
             return cell
         }
         cell.activityIndicator.startAnimating()
-        DispatchQueue.global().async {
-            let imageLoaderDataTask = URLSession.shared.dataTask(with: imageUrl) { data, response, error in
-                if let data = data, let loadedImage = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        cell.carImage.image = loadedImage
-                        cell.activityIndicator.stopAnimating()
-                        self.tableView.reloadData()
-                    }
-                }
-            }
-            imageLoaderDataTask.resume()
-        }
+        self.loadImage(into: cell, from: imageUrl)
         
         return cell
     }
@@ -99,7 +88,7 @@ class MasterViewController: UITableViewController {
 
 extension MasterViewController {
     func loadData() {
-       // DispatchQueue.global().async {
+        DispatchQueue.global().async {
             let request = URLRequest(url: Constants.carsJSONUrl, cachePolicy: .reloadIgnoringLocalCacheData)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
@@ -123,5 +112,24 @@ extension MasterViewController {
             }
             task.resume()
         }
-//    }
+    }
+    
+    func loadImage(into cell: ReusableCarCell, from url: URL) {
+        var image: UIImage?
+        
+        DispatchQueue.global().async {
+            do {
+                try image = UIImage(data: Data(contentsOf: url))!
+            } catch {
+                print("Failed")
+            }
+            DispatchQueue.main.async(execute: {
+                if image != nil {
+                    cell.activityIndicator.stopAnimating()
+                    cell.carImage.image = image
+                    cell.carImage.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: (image?.size.height)!)
+                }
+            })
+        }
+    }
 }

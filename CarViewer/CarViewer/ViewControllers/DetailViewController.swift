@@ -10,6 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var carImage: UIImageView!
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
 
