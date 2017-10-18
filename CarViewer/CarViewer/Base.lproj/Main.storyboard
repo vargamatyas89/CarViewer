@@ -71,6 +71,10 @@
                                             <segue destination="LfP-XQ-XMI" kind="presentation" identifier="showOnMap" id="ryO-c8-BvU"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mo2-Cr-h0q">
+                                        <rect key="frame" x="177" y="118" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="DIH-CI-5Ar" secondAttribute="trailing" constant="-1" id="14U-9f-fJZ"/>
@@ -101,6 +105,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="mo2-Cr-h0q" id="lh0-dW-XWj"/>
                         <outlet property="carImage" destination="pYS-Gf-Bwk" id="xTL-ud-XoP"/>
                         <outlet property="textView" destination="PfA-bF-G5g" id="DRB-YZ-vht"/>
                     </connections>

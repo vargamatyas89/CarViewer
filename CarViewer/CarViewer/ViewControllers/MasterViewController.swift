@@ -45,12 +45,11 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow,
-                let cell = sender as? ReusableCarCell,
                 let detailViewController = (segue.destination as! UINavigationController).topViewController as? DetailViewController
             {
                 let selectedCar = carList[indexPath.row]
                 detailViewController.car = selectedCar
-                detailViewController.carImage.image = cell.carImage.image
+                detailViewController.carImage = UIImageView(image: self.loadDefaultImage())
                 detailViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 detailViewController.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -79,12 +78,13 @@ class MasterViewController: UITableViewController {
         cell.carModelName.text = car.modelName
         cell.carColor.text = car.colorDescription
         cell.cleanliness.text = car.innerCleanlinessDescription
-        cell.carImage.image = UIImage(named: Constants.placeholderCarImage, in: Bundle.main, compatibleWith: nil)
+        cell.carImage.image = self.loadDefaultImage()
         guard let imageUrl = car.carImageUrl else {
             print("Image load failed.")
             // If there isn't any imageUrl, the default image will remain presented
             return cell
         }
+        cell.activityIndicator.isHidden = false
         cell.activityIndicator.startAnimating()
         self.loadImage(into: cell, from: imageUrl)
         
@@ -139,10 +139,15 @@ extension MasterViewController {
             }
             DispatchQueue.main.async(execute: {
                 cell.activityIndicator.stopAnimating()
+                cell.activityIndicator.isHidden = true
                 if image != nil {
                     cell.carImage.image = image
                 }
             })
         }
+    }
+    
+    func loadDefaultImage() -> UIImage? {
+        return UIImage(named: Constants.placeholderCarImage, in: Bundle.main, compatibleWith: nil)
     }
 }

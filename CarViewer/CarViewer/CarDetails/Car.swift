@@ -41,6 +41,7 @@ class Car {
     let position: Position
     let innerCleanliness: String
     let carImageUrl: URL?
+    var carImageData: Data?
     
     public var colorDescription: String {
         get {
@@ -87,6 +88,10 @@ class Car {
         self.position = Position(latitude: latitude, longitude: longitude)
         self.innerCleanliness = innerCleanliness
         self.carImageUrl = URL(string: String(format: Constants.carImageUrlSchemeMainPart))?.appendingPathComponent(modelIdentifier).appendingPathComponent(color).appendingPathComponent(Constants.carImageUrlSchemeEndPart)
+        if let url = self.carImageUrl {
+            let imageData = try Data(contentsOf: url)
+            self.carImageData = imageData
+        }
     }
     
     
