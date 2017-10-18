@@ -12,14 +12,22 @@ import Foundation
 
 class MasterViewController: UITableViewController {
 
-    var defaultRowHeight = CGFloat(124)
+    var defaultRowHeight = CGFloat(100)
     var detailViewController: DetailViewController? = nil
     var carList = [Car]()
     
+    deinit {
+        self.carList.removeAll()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Cars"
         self.loadData()
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+            
+        self.navigationItem.title = "Cars"
 
         if let split = splitViewController {
             let controllers = split.viewControllers
@@ -36,10 +44,16 @@ class MasterViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
+            if let indexPath = tableView.indexPathForSelectedRow,
+                let cell = sender as? ReusableCarCell,
+                let detailViewController = (segue.destination as! UINavigationController).topViewController as? DetailViewController
+            {
+                let selectedCar = carList[indexPath.row]
+                detailViewController.car = selectedCar
+                detailViewController.carImage.image = cell.carImage.image
+                detailViewController.detailDescriptionLabel = selectedCar
+                detailViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                detailViewController.navigationItem.leftItemsSupplementBackButton = true
             }
         }
     }
@@ -55,10 +69,7 @@ class MasterViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let height = (tableView.cellForRow(at: indexPath) as? ReusableCarCell)?.carImage.frame.height else {
-            return defaultRowHeight
-        }
-        return height
+        return defaultRowHeight
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,7 +100,7 @@ class MasterViewController: UITableViewController {
 extension MasterViewController {
     func loadData() {
         DispatchQueue.global().async {
-            let request = URLRequest(url: Constants.carsJSONUrl, cachePolicy: .reloadIgnoringLocalCacheData)
+            let request = URLRequest(url: Constants.carsJSONUrl, cachePolicy: .returnCacheDataElseLoad)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
                     print("Error happened during json download: \(error)")
@@ -107,6 +118,9 @@ extension MasterViewController {
                         } catch {
                             print("Error happened during transforming jsonDictionary element. \(error)")
                         }
+                    }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
                     }
                 }
             }
@@ -127,7 +141,6 @@ extension MasterViewController {
                 if image != nil {
                     cell.activityIndicator.stopAnimating()
                     cell.carImage.image = image
-                    cell.carImage.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: (image?.size.height)!)
                 }
             })
         }
