@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-import CoreLocation
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
@@ -22,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         splitViewController.delegate = self
         
-        let locationManager = CLLocationManager()
-        locationManager.requestWhenInUseAuthorization()
+        self.requestLocationAccess()
 
         return true
     }

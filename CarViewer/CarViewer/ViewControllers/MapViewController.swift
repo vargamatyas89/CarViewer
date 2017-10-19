@@ -20,22 +20,31 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.mapView.delegate = self
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.loadMapView(animated)
+    }
+    
     @IBAction func doneButtonTapped(_ sender: Any) {
         self.dismiss(animated: true)
     }
     
-    private func loadMapView() {
+    private func loadMapView(_ animated: Bool) {
         self.mapView.isZoomEnabled = true
         self.mapView.isRotateEnabled = true
         self.mapView.isScrollEnabled = true
-        if let position = position {
-            let coordinates = CLLocationCoordinate2D(latitude: CLLocationDegrees(position.latitude), longitude: CLLocationDegrees(position.longitude))
-            let annotation = MKPointAnnotation()
-            if let name = carName {
-                annotation.title = name
-            }
-            annotation.coordinate = coordinates
-            mapView.addAnnotation(annotation)
+        let coordinates: CLLocationCoordinate2D
+        coordinates = CLLocationCoordinate2D(latitude: CLLocationDegrees(position.latitude), longitude: CLLocationDegrees(position.longitude))
+        let annotation = MKPointAnnotation()
+        if let name = carName {
+            annotation.title = name
         }
+        annotation.coordinate = coordinates
+        mapView.addAnnotation(annotation)
+        var visibleRectangle = mapView.visibleMapRect
+        let mapPoint = MKMapPointForCoordinate(CLLocationCoordinate2D(latitude: CLLocationDegrees(position.latitude), longitude: CLLocationDegrees(position.longitude)))
+        visibleRectangle.origin.x = mapPoint.x - visibleRectangle.size.width * 0.5;
+        visibleRectangle.origin.y = mapPoint.y - visibleRectangle.size.height * 0.25;
+        mapView.setVisibleMapRect(visibleRectangle, animated: animated)
+        mapView.setRegion(MKCoordinateRegion(center: coordinates, span: MKCoordinateSpanMake(coordinates.latitude, coordinates.longitude)), animated: animated)
     }
 }
