@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,14 +34,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOY-Sv-2ST">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOY-Sv-2ST">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIH-CI-5Ar">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PfA-bF-G5g">
-                                                <rect key="frame" x="0.0" y="336" width="375" height="267"/>
+                                                <rect key="frame" x="20" y="305" width="335" height="298"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -49,19 +50,22 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="PfA-bF-G5g" secondAttribute="trailing" id="bhz-m5-ji5"/>
-                                            <constraint firstItem="PfA-bF-G5g" firstAttribute="leading" secondItem="DIH-CI-5Ar" secondAttribute="leading" id="e90-MD-qhw"/>
+                                            <constraint firstItem="PfA-bF-G5g" firstAttribute="leading" secondItem="DIH-CI-5Ar" secondAttribute="leading" constant="20" id="a6z-9S-tEm"/>
+                                            <constraint firstAttribute="trailing" secondItem="PfA-bF-G5g" secondAttribute="trailing" constant="20" id="bhz-m5-ji5"/>
                                             <constraint firstAttribute="bottom" secondItem="PfA-bF-G5g" secondAttribute="bottom" id="uJc-dY-gT4"/>
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pYS-Gf-Bwk">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="256" id="dgW-CM-Wbr"/>
+                                            <constraint firstAttribute="height" constant="225" id="dgW-CM-Wbr"/>
                                         </constraints>
                                     </imageView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mo2-Cr-h0q">
+                                        <rect key="frame" x="177" y="102.5" width="20" height="20"/>
+                                    </activityIndicatorView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnN-Q6-gfT">
-                                        <rect key="frame" x="140.5" y="276" width="93" height="40"/>
+                                        <rect key="frame" x="141" y="245" width="93" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="6pE-bC-Dvg"/>
                                         </constraints>
@@ -71,25 +75,22 @@
                                             <segue destination="LfP-XQ-XMI" kind="presentation" identifier="showOnMap" id="ryO-c8-BvU"/>
                                         </connections>
                                     </button>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mo2-Cr-h0q">
-                                        <rect key="frame" x="177" y="118" width="20" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="DIH-CI-5Ar" secondAttribute="trailing" constant="-1" id="14U-9f-fJZ"/>
                                     <constraint firstItem="pYS-Gf-Bwk" firstAttribute="top" secondItem="DIH-CI-5Ar" secondAttribute="top" id="1vA-pJ-NYO"/>
-                                    <constraint firstItem="YnN-Q6-gfT" firstAttribute="centerX" secondItem="pYS-Gf-Bwk" secondAttribute="centerX" id="8PP-nd-EO3"/>
-                                    <constraint firstItem="PfA-bF-G5g" firstAttribute="top" secondItem="YnN-Q6-gfT" secondAttribute="bottom" constant="20" id="9u4-Nl-pni"/>
-                                    <constraint firstItem="pYS-Gf-Bwk" firstAttribute="leading" secondItem="DIH-CI-5Ar" secondAttribute="leading" id="FbI-IK-8HK"/>
                                     <constraint firstItem="DIH-CI-5Ar" firstAttribute="centerX" secondItem="YOY-Sv-2ST" secondAttribute="centerX" id="IUi-NA-TOk"/>
                                     <constraint firstItem="DIH-CI-5Ar" firstAttribute="centerY" secondItem="YOY-Sv-2ST" secondAttribute="centerY" id="JYB-oZ-zBd"/>
-                                    <constraint firstItem="YnN-Q6-gfT" firstAttribute="top" secondItem="pYS-Gf-Bwk" secondAttribute="bottom" constant="20" id="KLf-Ec-cVd"/>
+                                    <constraint firstItem="pYS-Gf-Bwk" firstAttribute="leading" secondItem="DIH-CI-5Ar" secondAttribute="leading" id="RDv-Na-lSl"/>
+                                    <constraint firstItem="YnN-Q6-gfT" firstAttribute="centerX" secondItem="DIH-CI-5Ar" secondAttribute="centerX" id="Rap-UN-XaY"/>
+                                    <constraint firstItem="YnN-Q6-gfT" firstAttribute="top" secondItem="pYS-Gf-Bwk" secondAttribute="bottom" constant="20" id="Z1M-R3-zfE"/>
+                                    <constraint firstItem="pYS-Gf-Bwk" firstAttribute="centerX" secondItem="mo2-Cr-h0q" secondAttribute="centerX" id="fBq-Tp-yny"/>
                                     <constraint firstItem="DIH-CI-5Ar" firstAttribute="height" secondItem="YOY-Sv-2ST" secondAttribute="height" id="j8t-sP-814"/>
-                                    <constraint firstItem="pYS-Gf-Bwk" firstAttribute="trailing" secondItem="DIH-CI-5Ar" secondAttribute="trailing" id="oXh-yD-OFo"/>
+                                    <constraint firstItem="PfA-bF-G5g" firstAttribute="top" secondItem="YnN-Q6-gfT" secondAttribute="bottom" constant="20" id="pkm-2i-NyZ"/>
                                     <constraint firstItem="DIH-CI-5Ar" firstAttribute="width" secondItem="YOY-Sv-2ST" secondAttribute="width" id="vLI-16-152"/>
                                     <constraint firstAttribute="bottom" secondItem="DIH-CI-5Ar" secondAttribute="bottom" constant="-10" id="vUO-rP-uHk"/>
                                     <constraint firstItem="PfA-bF-G5g" firstAttribute="centerX" secondItem="pYS-Gf-Bwk" secondAttribute="centerX" id="vxi-KJ-MXM"/>
+                                    <constraint firstItem="mo2-Cr-h0q" firstAttribute="centerY" secondItem="pYS-Gf-Bwk" secondAttribute="centerY" id="x5r-IG-qor"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -112,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="707.5" y="127.5"/>
+            <point key="canvasLocation" x="706.39999999999998" y="127.28635682158921"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="RhF-Ka-neh">
