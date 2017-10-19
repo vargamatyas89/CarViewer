@@ -32,12 +32,22 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.mapView.isZoomEnabled = true
         self.mapView.isRotateEnabled = true
         self.mapView.isScrollEnabled = true
+        
+        self.makeAnnotationPoint()
+        
+        self.showRegionOfAnnotationPoint(animated)
+    }
+    
+    private func makeAnnotationPoint() {
         let annotation = MKPointAnnotation()
         if let name = carName {
             annotation.title = name
         }
-        annotation.coordinate = position
-        mapView.addAnnotation(annotation)
+        annotation.coordinate = self.position
+        self.mapView.addAnnotation(annotation)
+    }
+    
+    private func showRegionOfAnnotationPoint(_ animated: Bool) {
         var visibleRectangle = mapView.visibleMapRect
         let mapPoint = MKMapPointForCoordinate(position)
         visibleRectangle.origin.x = mapPoint.x - visibleRectangle.size.width * 0.5;
