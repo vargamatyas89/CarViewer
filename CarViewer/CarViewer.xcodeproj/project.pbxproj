@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB07B8571F98D0E900D8019D /* AppDelegate+LocationAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB07B8561F98D0E900D8019D /* AppDelegate+LocationAccess.swift */; };
 		CB444D591F92AB0400713AEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D581F92AB0400713AEC /* AppDelegate.swift */; };
 		CB444D5C1F92AB0400713AEC /* CarViewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB444D5A1F92AB0400713AEC /* CarViewer.xcdatamodeld */; };
 		CB444D5E1F92AB0400713AEC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D5D1F92AB0400713AEC /* MasterViewController.swift */; };
@@ -38,7 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CB07B8561F98D0E900D8019D /* AppDelegate+LocationAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+LocationAccess.swift"; sourceTree = "<group>"; };
 		CB444D551F92AB0400713AEC /* CarViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB444D581F92AB0400713AEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB444D5B1F92AB0400713AEC /* CarViewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CarViewer.xcdatamodel; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 				CB444D7D1F92AC4B00713AEC /* CarDetails */,
 				CB5DC7A51F992293006242B3 /* Tools */,
 				CB444D581F92AB0400713AEC /* AppDelegate.swift */,
-				CB07B8561F98D0E900D8019D /* AppDelegate+LocationAccess.swift */,
 				CB444D611F92AB0400713AEC /* Main.storyboard */,
 				CB444D641F92AB0400713AEC /* Assets.xcassets */,
 				CB444D661F92AB0400713AEC /* LaunchScreen.storyboard */,
@@ -284,7 +281,6 @@
 				CB5DC7A71F9922A9006242B3 /* String+Extensions.swift in Sources */,
 				CB444D7F1F92ACB600713AEC /* Car.swift in Sources */,
 				CB444D5E1F92AB0400713AEC /* MasterViewController.swift in Sources */,
-				CB07B8571F98D0E900D8019D /* AppDelegate+LocationAccess.swift in Sources */,
 				CB444D601F92AB0400713AEC /* DetailViewController.swift in Sources */,
 				CB444D881F92E7B400713AEC /* FuelInformation.swift in Sources */,
 				CB444D821F92E1BF00713AEC /* Constants.swift in Sources */,
