@@ -27,15 +27,14 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showOnMap", let car = car, let destination = segue.destination as? MapViewController {
-            destination.carName = car.name
-            destination.position = car.position
+        if segue.identifier == "showOnMap", let car = car, let navigationController = segue.destination as? UINavigationController {
+            let mapViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+            mapViewController.carName = car.name
+            mapViewController.position = car.position
+            mapViewController.title = "Car position"
+            navigationController.navigationItem.setLeftBarButton(nil, animated: true)
+            navigationController.pushViewController(mapViewController, animated: true)
         }
     }
     

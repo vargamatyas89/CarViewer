@@ -50,6 +50,7 @@ class MasterViewController: UITableViewController {
                 let selectedCar = carList[indexPath.row]
                 detailViewController.car = selectedCar
                 detailViewController.carImage = UIImageView(image: self.loadDefaultImage())
+                detailViewController.title = selectedCar.modelName
                 detailViewController.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 detailViewController.navigationItem.leftItemsSupplementBackButton = true
             }

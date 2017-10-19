@@ -18,6 +18,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
+        self.navigationItem.hidesBackButton = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -32,10 +33,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.mapView.isZoomEnabled = true
         self.mapView.isRotateEnabled = true
         self.mapView.isScrollEnabled = true
+        self.mapView.showsScale = true
+        self.mapView.showsCompass = true
         
         self.makeAnnotationPoint()
         
-        self.showRegionOfAnnotationPoint(animated)
+        self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
     }
     
     private func makeAnnotationPoint() {
@@ -45,14 +48,5 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         }
         annotation.coordinate = self.position
         self.mapView.addAnnotation(annotation)
-    }
-    
-    private func showRegionOfAnnotationPoint(_ animated: Bool) {
-        var visibleRectangle = mapView.visibleMapRect
-        let mapPoint = MKMapPointForCoordinate(position)
-        visibleRectangle.origin.x = mapPoint.x - visibleRectangle.size.width * 0.5;
-        visibleRectangle.origin.y = mapPoint.y - visibleRectangle.size.height * 0.25;
-        mapView.setVisibleMapRect(visibleRectangle, animated: animated)
-        mapView.setRegion(MKCoordinateRegion(center: position, span: MKCoordinateSpanMake(position.latitude, position.longitude)), animated: animated)
     }
 }
