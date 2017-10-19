@@ -12,8 +12,8 @@ struct FuelInformation {
     let fuelType: String
     let fuelLevel: Float
     
-    var share: (String, Float) {
-        return (fuelType, fuelLevel)
+    var share: String {
+        return "type: \(fuelType), level \(fuelLevel)"
     }
     
     public init(fuelType: String, fuelLevel: Float) {

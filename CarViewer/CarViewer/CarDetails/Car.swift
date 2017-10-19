@@ -44,18 +44,6 @@ class Car {
     let carImageUrl: URL?
     var carImageData: Data?
     
-    public var colorDescription: String {
-        get {
-            return self.color.replacingOccurrences(of: "_", with: " ").capitalized
-        }
-    }
-    
-    public var innerCleanlinessDescription: String {
-        get {
-            return "Inner cleanliness: \(self.innerCleanliness.replacingOccurrences(of: "_", with: " ").capitalized)"
-        }
-    }
-    
     public init(from dictionary: [String: Any]) throws {
         guard let id = dictionary["id"] as? String,
             let modelIdentifier = dictionary["modelIdentifier"] as? String,

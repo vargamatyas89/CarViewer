@@ -64,7 +64,20 @@ class DetailViewController: UIViewController {
     }
     
     private func fillTextViewWithCarData() {
-        let result = ""
+        var result = ""
+        result.appendLine("Name: \(car.name)")
+        result.appendLine("Model name: \(car.modelName)")
+        result.appendLine(car.innerCleanlinessDescription)
+        result.appendLine("Model identifier: \(car.modelIdentifier)")
+        result.appendLine("ID: \(car.id)")
+        result.appendLine("Make: \(car.make)")
+        result.appendLine("Group: \(car.group)")
+        result.appendLine("Color: " + car.colorDescription)
+        result.appendLine("Series: \(car.series)")
+        result.appendLine("Fuel information: " + car.fuelInformation.share)
+        result.appendLine("Transmission: \(car.transmission)")
+        result.appendLine("License plate: \(car.licensePlate)")
+        
         self.textView.text = result
     }
 }

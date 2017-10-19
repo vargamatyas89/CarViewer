@@ -22,6 +22,8 @@
 		CB444D8A1F92EE4E00713AEC /* ReusableCarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D891F92EE4E00713AEC /* ReusableCarCell.swift */; };
 		CB444D8D1F93C35B00713AEC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D8C1F93C35B00713AEC /* MapViewController.swift */; };
 		CB444D911F95492200713AEC /* default-image-car.png in Resources */ = {isa = PBXBuildFile; fileRef = CB444D901F95490200713AEC /* default-image-car.png */; };
+		CB5DC7A71F9922A9006242B3 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5DC7A61F9922A9006242B3 /* String+Extensions.swift */; };
+		CB5DC7B01F99282E006242B3 /* Car+PropertyDescriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5DC7AF1F99282E006242B3 /* Car+PropertyDescriptions.swift */; };
 		CBA1F9D71F97F77400BD5256 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1F9D61F97F77400BD5256 /* Error.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		CB444D891F92EE4E00713AEC /* ReusableCarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCarCell.swift; sourceTree = "<group>"; };
 		CB444D8C1F93C35B00713AEC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CB444D901F95490200713AEC /* default-image-car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-image-car.png"; sourceTree = "<group>"; };
+		CB5DC7A61F9922A9006242B3 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		CB5DC7AF1F99282E006242B3 /* Car+PropertyDescriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Car+PropertyDescriptions.swift"; sourceTree = "<group>"; };
 		CBA1F9D61F97F77400BD5256 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,10 +101,11 @@
 		CB444D571F92AB0400713AEC /* CarViewer */ = {
 			isa = PBXGroup;
 			children = (
+				CB444D8B1F92EE5900713AEC /* ViewControllers */,
 				CB444D801F92E19F00713AEC /* Constants */,
 				CB444D8F1F9548B700713AEC /* Images */,
 				CB444D7D1F92AC4B00713AEC /* CarDetails */,
-				CB444D8B1F92EE5900713AEC /* ViewControllers */,
+				CB5DC7A51F992293006242B3 /* Tools */,
 				CB444D581F92AB0400713AEC /* AppDelegate.swift */,
 				CB07B8561F98D0E900D8019D /* AppDelegate+LocationAccess.swift */,
 				CB444D611F92AB0400713AEC /* Main.storyboard */,
@@ -125,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				CB444D7E1F92ACB600713AEC /* Car.swift */,
+				CB5DC7AF1F99282E006242B3 /* Car+PropertyDescriptions.swift */,
 				CB444D871F92E7B400713AEC /* FuelInformation.swift */,
 				CBA1F9D61F97F77400BD5256 /* Error.swift */,
 			);
@@ -156,6 +162,14 @@
 				CB444D901F95490200713AEC /* default-image-car.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		CB5DC7A51F992293006242B3 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				CB5DC7A61F9922A9006242B3 /* String+Extensions.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,8 +278,10 @@
 			files = (
 				CB444D8D1F93C35B00713AEC /* MapViewController.swift in Sources */,
 				CB444D5C1F92AB0400713AEC /* CarViewer.xcdatamodeld in Sources */,
+				CB5DC7B01F99282E006242B3 /* Car+PropertyDescriptions.swift in Sources */,
 				CB444D591F92AB0400713AEC /* AppDelegate.swift in Sources */,
 				CBA1F9D71F97F77400BD5256 /* Error.swift in Sources */,
+				CB5DC7A71F9922A9006242B3 /* String+Extensions.swift in Sources */,
 				CB444D7F1F92ACB600713AEC /* Car.swift in Sources */,
 				CB444D5E1F92AB0400713AEC /* MasterViewController.swift in Sources */,
 				CB07B8571F98D0E900D8019D /* AppDelegate+LocationAccess.swift in Sources */,
