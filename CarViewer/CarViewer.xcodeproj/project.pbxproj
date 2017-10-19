@@ -18,7 +18,6 @@
 		CB444D731F92AB0400713AEC /* CarViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D721F92AB0400713AEC /* CarViewerTests.swift */; };
 		CB444D7F1F92ACB600713AEC /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D7E1F92ACB600713AEC /* Car.swift */; };
 		CB444D821F92E1BF00713AEC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D811F92E1BF00713AEC /* Constants.swift */; };
-		CB444D861F92E74000713AEC /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D851F92E74000713AEC /* Position.swift */; };
 		CB444D881F92E7B400713AEC /* FuelInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D871F92E7B400713AEC /* FuelInformation.swift */; };
 		CB444D8A1F92EE4E00713AEC /* ReusableCarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D891F92EE4E00713AEC /* ReusableCarCell.swift */; };
 		CB444D8D1F93C35B00713AEC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB444D8C1F93C35B00713AEC /* MapViewController.swift */; };
@@ -52,7 +51,6 @@
 		CB444D741F92AB0400713AEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB444D7E1F92ACB600713AEC /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		CB444D811F92E1BF00713AEC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		CB444D851F92E74000713AEC /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		CB444D871F92E7B400713AEC /* FuelInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelInformation.swift; sourceTree = "<group>"; };
 		CB444D891F92EE4E00713AEC /* ReusableCarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCarCell.swift; sourceTree = "<group>"; };
 		CB444D8C1F93C35B00713AEC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				CB444D7E1F92ACB600713AEC /* Car.swift */,
-				CB444D851F92E74000713AEC /* Position.swift */,
 				CB444D871F92E7B400713AEC /* FuelInformation.swift */,
 				CBA1F9D61F97F77400BD5256 /* Error.swift */,
 			);
@@ -274,7 +271,6 @@
 				CB07B8571F98D0E900D8019D /* AppDelegate+LocationAccess.swift in Sources */,
 				CB444D601F92AB0400713AEC /* DetailViewController.swift in Sources */,
 				CB444D881F92E7B400713AEC /* FuelInformation.swift in Sources */,
-				CB444D861F92E74000713AEC /* Position.swift in Sources */,
 				CB444D821F92E1BF00713AEC /* Constants.swift in Sources */,
 				CB444D8A1F92EE4E00713AEC /* ReusableCarCell.swift in Sources */,
 			);

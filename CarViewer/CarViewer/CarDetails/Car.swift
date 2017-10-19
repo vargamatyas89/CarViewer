@@ -25,6 +25,7 @@
 //"carImageUrl": "https://de.drive-now.com/static/drivenow/img/cars/mini.png"
 
 import Foundation
+import CoreLocation
 
 class Car {
     let id: String
@@ -38,7 +39,7 @@ class Car {
     let fuelInformation: FuelInformation
     let transmission: String
     let licensePlate: String
-    let position: Position
+    let position: CLLocationCoordinate2D
     let innerCleanliness: String
     let carImageUrl: URL?
     var carImageData: Data?
@@ -85,7 +86,7 @@ class Car {
         self.fuelInformation = FuelInformation(fuelType: fuelType, fuelLevel: fuelLevel)
         self.transmission = transmission
         self.licensePlate = licensePlate
-        self.position = Position(latitude: latitude, longitude: longitude)
+        self.position = CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
         self.innerCleanliness = innerCleanliness
         self.carImageUrl = URL(string: String(format: Constants.carImageUrlSchemeMainPart))?.appendingPathComponent(modelIdentifier).appendingPathComponent(color).appendingPathComponent(Constants.carImageUrlSchemeEndPart)
         if let url = self.carImageUrl {

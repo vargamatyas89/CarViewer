@@ -12,7 +12,7 @@ import MapKit
 class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
-    public var position: Position!
+    public var position: CLLocationCoordinate2D!
     public var carName: String!
     
     override func viewDidLoad() {
@@ -32,19 +32,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.mapView.isZoomEnabled = true
         self.mapView.isRotateEnabled = true
         self.mapView.isScrollEnabled = true
-        let coordinates: CLLocationCoordinate2D
-        coordinates = CLLocationCoordinate2D(latitude: CLLocationDegrees(position.latitude), longitude: CLLocationDegrees(position.longitude))
         let annotation = MKPointAnnotation()
         if let name = carName {
             annotation.title = name
         }
-        annotation.coordinate = coordinates
+        annotation.coordinate = position
         mapView.addAnnotation(annotation)
         var visibleRectangle = mapView.visibleMapRect
-        let mapPoint = MKMapPointForCoordinate(CLLocationCoordinate2D(latitude: CLLocationDegrees(position.latitude), longitude: CLLocationDegrees(position.longitude)))
+        let mapPoint = MKMapPointForCoordinate(position)
         visibleRectangle.origin.x = mapPoint.x - visibleRectangle.size.width * 0.5;
         visibleRectangle.origin.y = mapPoint.y - visibleRectangle.size.height * 0.25;
         mapView.setVisibleMapRect(visibleRectangle, animated: animated)
-        mapView.setRegion(MKCoordinateRegion(center: coordinates, span: MKCoordinateSpanMake(coordinates.latitude, coordinates.longitude)), animated: animated)
+        mapView.setRegion(MKCoordinateRegion(center: position, span: MKCoordinateSpanMake(position.latitude, position.longitude)), animated: animated)
     }
 }
