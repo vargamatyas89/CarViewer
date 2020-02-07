@@ -54,7 +54,7 @@ class Car {
             let color = dictionary["color"] as? String,
             let series = dictionary["series"] as? String,
             let fuelType = dictionary["fuelType"] as? String,
-            let fuelLevel = dictionary["fuelLevel"] as? Float,
+            let fuelLevel = dictionary["fuelLevel"] as? Double,
             let transmission = dictionary["transmission"] as? String,
             let licensePlate = dictionary["licensePlate"] as? String,
             let latitude = dictionary["latitude"] as? Double,

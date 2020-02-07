@@ -10,13 +10,13 @@ import Foundation
 
 struct FuelInformation {
     let fuelType: String
-    let fuelLevel: Float
+    let fuelLevel: Double
     
     var share: String {
         return "type: \(fuelType), level \(fuelLevel)"
     }
     
-    public init(fuelType: String, fuelLevel: Float) {
+    public init(fuelType: String, fuelLevel: Double) {
         self.fuelType = fuelType
         self.fuelLevel = fuelLevel
     }
